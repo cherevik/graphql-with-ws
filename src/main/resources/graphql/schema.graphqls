@@ -1,0 +1,13 @@
+type Message {
+    id: ID!
+    role: String
+    content: String
+}
+
+type Query {
+    allMessages: [Message]
+}
+
+type Mutation {
+    postMessage(role: String, content: String): Message
+}
