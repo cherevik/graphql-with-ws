@@ -50,7 +50,7 @@ const MessageList = () => {
     const {error, loading, data, subscribeToMore} = useQuery(MESSAGES_QUERY);
 
     useEffect(() => {
-        subscribeToMore({
+        return subscribeToMore({
             document: NEW_MESSAGE_SUBSCRIPTION,
             variables: {},
             updateQuery: (prev, {subscriptionData}) => {
