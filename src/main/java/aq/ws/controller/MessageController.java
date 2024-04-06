@@ -6,7 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
+import org.springframework.graphql.data.method.annotation.SubscriptionMapping;
 import org.springframework.stereotype.Controller;
+import reactor.core.publisher.Flux;
 
 import java.util.List;
 import java.util.UUID;
@@ -34,5 +36,10 @@ public class MessageController {
                 .build();
         messageService.addMessage(message);
         return message;
+    }
+
+    @SubscriptionMapping
+    public Flux<Message> newMessage() {
+        return this.messageService.getPublisher();
     }
 }

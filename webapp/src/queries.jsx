@@ -17,3 +17,13 @@ export const POST_MESSAGE = gql`
         }
     }
 `;
+
+export const NEW_MESSAGE_SUBSCRIPTION = gql`
+    subscription newMessage {
+        newMessage {
+            id
+            role
+            content
+        }
+    }
+`;

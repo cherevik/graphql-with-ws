@@ -11,3 +11,8 @@ type Query {
 type Mutation {
     postMessage(role: String, content: String): Message
 }
+
+type Subscription {
+    newMessage: Message
+}
+
